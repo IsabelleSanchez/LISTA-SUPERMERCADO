@@ -1,0 +1,33 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffedf7; /* Cor de fundo mais clara */
+}
+
+/* Remova ou ajuste estilos que agora são tratados pelo Bootstrap */
+/* Por exemplo, padding, margin, etc., podem ser gerenciados por classes utilitárias do Bootstrap */
+
+/* Ajustes específicos que você ainda queira controlar */
+.evento-card {
+    border: 1px solid palevioletred;
+    background-color: #d8bfdb;
+}
+
+.meu-ingresso-item {
+    border: 1px solid #d4edda;
+    background-color: #f0f7f4;
+}
+
+
+
+/* Ajustes para o input de quantidade em telas menores */
+@media (max-width: 576px) {
+    .evento-card .compra-area {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%; /* Ocupa toda a largura */
+    }
+    .evento-card input[type="number"] {
+        width: 100%; /* Faz o input ocupar toda a largura disponível */
+        margin-bottom: 10px; /* Espaçamento entre input e botão */
+    }
+}
