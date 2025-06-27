@@ -1,33 +1,102 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ffedf7; /* Cor de fundo mais clara */
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #ffeef2; /* Fundo geral: Rosa Suave */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* Remova ou ajuste estilos que agora são tratados pelo Bootstrap */
-/* Por exemplo, padding, margin, etc., podem ser gerenciados por classes utilitárias do Bootstrap */
-
-/* Ajustes específicos que você ainda queira controlar */
-.evento-card {
-    border: 1px solid palevioletred;
-    background-color: #d8bfdb;
+/* A "Redoma" - Nosso contêiner principal */
+.custom-container {
+    background-color: #ffffff; /* Fundo da redoma: Branco puro para destaque */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Sombra um pouco mais suave */
+    max-width: 600px;
+    width: 100%;
+    margin: 0;
 }
 
-.meu-ingresso-item {
-    border: 1px solid #d4edda;
-    background-color: #f0f7f4;
+h1 {
+    color: #F48FB1; /* Título: Rosa Médio */
+    font-weight: bold;
 }
 
+/* Estilo para o campo de input */
+.form-control {
+    border-color: #DEE2E6; /* Borda do input: Cinza Claro */
+}
 
+.form-control:focus {
+    border-color: #A7FFEB; /* Foco no input: Verde Água/Menta */
+    box-shadow: 0 0 0 0.25rem rgba(167, 255, 235, 0.25); /* Sombra suave para foco */
+}
 
-/* Ajustes para o input de quantidade em telas menores */
-@media (max-width: 576px) {
-    .evento-card .compra-area {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%; /* Ocupa toda a largura */
-    }
-    .evento-card input[type="number"] {
-        width: 100%; /* Faz o input ocupar toda a largura disponível */
-        margin-bottom: 10px; /* Espaçamento entre input e botão */
-    }
+/* Estilo para o botão "Adicionar" (Botão primário) */
+.btn-primary {
+    background-color: #e8fcee; /* Fundo: Verde Claro */
+    border-color: #ddfbe6;
+    color: #333; /* Texto do botão: Cinza escuro para contraste */
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #d2fadd; 
+    border-color: #d2fadd;
+    color: #333;
+}
+
+/* Estilo para os itens da lista */
+.list-group-item {
+    background-color: #fff; /* Fundo do item: Branco */
+    border: 1px solid #DEE2E6; /* Borda do item: Cinza Claro */
+    margin-bottom: 8px; /* Espaçamento entre os itens */
+}
+
+/* Estilo para itens riscados na lista */
+.list-group-item.completed {
+    text-decoration: line-through;
+    color: #9C27B0; /* Cor do texto riscado: Um tom de roxo/magenta para contrastar bem */
+    background-color: #FCE4EC; /* Fundo do item riscado: Rosa Claro */
+    border-color: #F8BBD0; /* Borda do item riscado: Um rosa um pouco mais forte */
+}
+
+.list-group-item span {
+    cursor: pointer;
+    flex-grow: 1;
+    font-size: 1.1em;
+}
+
+/* Ajustes para os botões de ação do item */
+.item-actions .btn {
+    padding: .375rem .75rem;
+    font-size: .875rem;
+    margin-left: 10px;
+}
+
+/* Estilo para o botão "Apagar" */
+.btn-danger {
+    background-color: #EF5350; /* Vermelho padrão para apagar */
+    border-color: #EF5350;
+}
+
+.btn-danger:hover {
+    background-color: #D32F2F; /* Vermelho mais escuro no hover */
+    border-color: #D32F2F;
+}
+
+/* Estilo para o botão "Limpar Lista Completa" */
+#clearListBtn {
+    background-color: #F48FB1; /* Fundo: Rosa Médio */
+    border-color: #F48FB1;
+    color: white; /* Texto: Branco */
+    font-weight: 600;
+}
+
+#clearListBtn:hover {
+    background-color: #EC407A; /* Hover: Um rosa um pouco mais vibrante */
+    border-color: #EC407A;
 }
