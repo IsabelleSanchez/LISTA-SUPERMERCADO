@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addItemBtn = document.getElementById('addItemBtn');
     const shoppingList = document.getElementById('shoppingList');
     const clearListBtn = document.getElementById('clearListBtn');
+    // Primeiro ouvinte de evento, é aplicado em toda página web
 
     // Função para carregar itens do Local Storage
     function loadItems() {
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Função para salvar itens no Local Storage
+    // Função que salva os itens no Local Storage
     function saveItems() {
         const items = [];
         shoppingList.querySelectorAll('li').forEach(li => {
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Marcar/desmarcar item ao clicar no texto
+        // Segundo ouvinte de evento
         itemText.addEventListener('click', () => {
             listItem.classList.toggle('completed');
             saveItems(); // Salva a mudança de status
@@ -49,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Apagar';
         // Adiciona classes Bootstrap para o botão de apagar
+        // Terceiro ouvinte de evento 
         deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm'); 
         deleteBtn.addEventListener('click', () => {
             shoppingList.removeChild(listItem);
@@ -62,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Evento para adicionar item ao clicar no botão
+    // Quarto ouvinte de evento
     addItemBtn.addEventListener('click', () => {
         const itemText = itemInput.value.trim();
         if (itemText !== '') {
@@ -73,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Evento para adicionar item ao pressionar Enter no campo de input
+    // Quinto ouvinte de evento
     itemInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
             addItemBtn.click(); // Simula o clique no botão de adicionar
@@ -80,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Evento para limpar toda a lista
+    // Sexto ouvinte de evento
     clearListBtn.addEventListener('click', () => {
         // Usa o modal de confirmação nativo do navegador
         if (confirm('Tem certeza que deseja limpar toda a lista?')) {
