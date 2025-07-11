@@ -3,28 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const addItemBtn = document.getElementById('addItemBtn');
     const shoppingList = document.getElementById('shoppingList');
     const clearListBtn = document.getElementById('clearListBtn');
+     const themeToggleBtn = document.getElementById('themeToggleBtn'); // Novo: Botão de alternar tema
     // Primeiro ouvinte de evento, é aplicado em toda página web
-
-    // Contar clicks
-    const clickButton = document.getElementById('clickButton');
-
-    let clickCount = JSON.parse(localStorage.getItem('Contarclick')) || 0; 
-
-    // Atualiza o texto inicial do botão com a contagem atual
-    // Agora ele já começa com "Cliques: X", sem o "Clique aqui!"
-    clickButton.textContent = `Cliques: ${clickCount}`;
-
-    // Adiciona um "ouvinte de evento" ao botão
-    clickButton.addEventListener('click', () => {
-        // Incrementa a contagem a cada clique
-        clickCount++;
-
-        // Atualiza o texto do botão com a nova contagem
-        clickButton.textContent = `Cliques: ${clickCount}`;
-
-        // Salva a contagem atualizada no localStorage
-        localStorage.setItem('Contarclick', JSON.stringify(clickCount));
-    });
 
 
     // Função para carregar itens do Local Storage
@@ -118,4 +98,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Carrega os itens quando a página é carregada
     loadItems();
+
+    // --- Nova lógica para o Tema Escuro ---
+
+    // Função para aplicar o tema
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggleBtn.textContent = 'Alternar para Tema Claro';
+            themeToggleBtn.classList.remove('btn-secondary');
+            themeToggleBtn.classList.add('btn-primary'); // Pode ser útil para destaque no modo escuro
+        } else {
+            document.body.classList.remove('dark-mode');
+            themeToggleBtn.textContent = 'Alternar para Tema Escuro';
+            themeToggleBtn.classList.remove('btn-primary');
+            themeToggleBtn.classList.add('btn-secondary'); // Volta ao estilo padrão do Bootstrap
+        }
+        localStorage.setItem('theme', theme); // Salva a preferência
+    }
+
+    // Carrega a preferência de tema do Local Storage ou do sistema operacional
+    function loadTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            applyTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // Se não há preferência salva, verifica a preferência do sistema operacional
+            applyTheme('dark');
+        } else {
+            // Padrão para tema claro
+            applyTheme('light');
+        }
+    }
+
+    // Evento para alternar o tema ao clicar no botão
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+    });
+
+     // Carrega o tema ao iniciar a página
+    loadTheme();
 });

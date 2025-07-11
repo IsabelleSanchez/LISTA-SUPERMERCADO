@@ -1,67 +1,122 @@
+/* Variáveis de cores para o tema CLARO (padrão) */
+:root {
+    --cor-fundo-body: #ffeef2;
+    --cor-fundo-container: #ffffff;
+    --cor-titulo: #F48FB1;
+    --cor-texto-padrao: #333;
+    --cor-borda-input: #DEE2E6;
+    --cor-foco-input: #A7FFEB;
+    --cor-fundo-btn-primario: #e8fcee;
+    --cor-borda-btn-primario: #ddfbe6;
+    --cor-texto-btn-primario: #333;
+    --cor-fundo-item: #fff;
+    --cor-borda-item: #DEE2E6;
+    --cor-texto-item-completo: #9C27B0;
+    --cor-fundo-item-completo: #FCE4EC;
+    --cor-borda-item-completo: #F8BBD0;
+    --cor-btn-danger: #EF5350;
+    --cor-btn-limpar: #F48FB1;
+    --cor-texto-btn-limpar: white;
+    --cor-btn-alternar-fundo: #6c757d; /* Cinza do Bootstrap */
+    --cor-btn-alternar-texto: white;
+}
+
+/* --- Tema ESCURO --- */
+body.dark-mode {
+    --cor-fundo-body: #282c34; /* Fundo geral: Cinza escuro */
+    --cor-fundo-container: #3c4149; /* Fundo da redoma: Cinza um pouco mais claro */
+    --cor-titulo: #61DAFB; /* Título: Ciano vibrante (Ex: React blue) */
+    --cor-texto-padrao: #e0e0e0; /* Texto geral: Cinza claro */
+    --cor-borda-input: #555;
+    --cor-foco-input: #61DAFB;
+    --cor-fundo-btn-primario: #4CAF50; /* Verde escuro */
+    --cor-borda-btn-primario: #388E3C;
+    --cor-texto-btn-primario: white;
+    --cor-fundo-item: #495057; /* Fundo do item: Cinza médio */
+    --cor-borda-item: #6c757d;
+    --cor-texto-item-completo: #BB86FC; /* Roxo suave */
+    --cor-fundo-item-completo: #5c6267;
+    --cor-borda-item-completo: #7a8288;
+    --cor-btn-danger: #DC3545; /* Vermelho escuro padrão */
+    --cor-btn-limpar: #61DAFB; /* Ciano vibrante */
+    --cor-texto-btn-limpar: #282c34; /* Texto: Fundo escuro */
+    --cor-btn-alternar-fundo: #007bff; /* Azul primário do Bootstrap */
+    --cor-btn-alternar-texto: white;
+}
+
 body {
     font-family: 'Times New Roman', Times, serif;
-    background-color: #ffeef2; /* Fundo geral: Rosa Suave */
+    background-color: var(--cor-fundo-body); /* Usando variável */
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
+    transition: background-color 0.3s ease; /* Transição suave */
 }
 
 /* A "Redoma" - Nosso contêiner principal */
 .custom-container {
-    background-color: #ffffff; /* Fundo da redoma: Branco puro para destaque */
+    background-color: var(--cor-fundo-container); /* Usando variável */
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Sombra um pouco mais suave */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     max-width: 600px;
     width: 100%;
     margin: 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
 }
 
 h1 {
-    color: #F48FB1; /* Título: Rosa Médio */
+    color: var(--cor-titulo); /* Usando variável */
     font-weight: bold;
+    transition: color 0.3s ease; /* Transição suave */
 }
 
 /* Estilo para o campo de input */
 .form-control {
-    border-color: #DEE2E6; /* Borda do input: Cinza Claro */
+    border-color: var(--cor-borda-input); /* Usando variável */
+    background-color: var(--cor-fundo-container); /* Mesma cor do container para integrar */
+    color: var(--cor-texto-padrao); /* Cor do texto do input */
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .form-control:focus {
-    border-color: #A7FFEB; /* Foco no input: Verde Água/Menta */
+    border-color: var(--cor-foco-input); /* Usando variável */
     box-shadow: 0 0 0 0.25rem rgba(167, 255, 235, 0.25); /* Sombra suave para foco */
 }
 
 /* Estilo para o botão "Adicionar" (Botão primário) */
 .btn-primary {
-    background-color: #e8fcee; /* Fundo: Verde Claro */
-    border-color: #ddfbe6;
-    color: #333; /* Texto do botão: Cinza escuro para contraste */
+    background-color: var(--cor-fundo-btn-primario); /* Usando variável */
+    border-color: var(--cor-borda-btn-primario);
+    color: var(--cor-texto-btn-primario); /* Usando variável */
     font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #d2fadd; 
+    background-color: #d2fadd; /* Ajuste para hover se necessário */
     border-color: #d2fadd;
-    color: #333;
+    color: var(--cor-texto-btn-primario);
 }
 
 /* Estilo para os itens da lista */
 .list-group-item {
-    background-color: #fff; /* Fundo do item: Branco */
-    border: 1px solid #DEE2E6; /* Borda do item: Cinza Claro */
-    margin-bottom: 8px; /* Espaçamento entre os itens */
+    background-color: var(--cor-fundo-item); /* Usando variável */
+    border: 1px solid var(--cor-borda-item); /* Usando variável */
+    margin-bottom: 8px;
+    color: var(--cor-texto-padrao); /* Cor do texto do item */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 /* Estilo para itens riscados na lista */
 .list-group-item.completed {
     text-decoration: line-through;
-    color: #9C27B0; /* Cor do texto riscado: Um tom de roxo/magenta para contrastar bem */
-    background-color: #FCE4EC; /* Fundo do item riscado: Rosa Claro */
-    border-color: #F8BBD0; /* Borda do item riscado: Um rosa um pouco mais forte */
+    color: var(--cor-texto-item-completo); /* Usando variável */
+    background-color: var(--cor-fundo-item-completo); /* Usando variável */
+    border-color: var(--cor-borda-item-completo); /* Usando variável */
 }
 
 .list-group-item span {
@@ -79,32 +134,34 @@ h1 {
 
 /* Estilo para o botão "Apagar" */
 .btn-danger {
-    background-color: #EF5350; /* Vermelho padrão para apagar */
-    border-color: #EF5350;
+    background-color: var(--cor-btn-danger); /* Usando variável */
+    border-color: var(--cor-btn-danger);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-danger:hover {
-    background-color: #D32F2F; /* Vermelho mais escuro no hover */
+    background-color: #D32F2F;
     border-color: #D32F2F;
-}
-
-/* Estilo botão de clicks */
-.btn-secondary {
-    border-radius: 5px;
-    border: solid #af6adf;
-    background-color: #c881f8;
-    
 }
 
 /* Estilo para o botão "Limpar Lista Completa" */
 #clearListBtn {
-    background-color: #F48FB1; /* Fundo: Rosa Médio */
-    border-color: #F48FB1;
-    color: white; /* Texto: Branco */
+    background-color: var(--cor-btn-limpar); /* Usando variável */
+    border-color: var(--cor-btn-limpar);
+    color: var(--cor-texto-btn-limpar); /* Usando variável */
     font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 #clearListBtn:hover {
-    background-color: #EC407A; /* Hover: Um rosa um pouco mais vibrante */
+    background-color: #EC407A;
     border-color: #EC407A;
+}
+
+/* Estilo para o botão de alternar tema */
+#themeToggleBtn {
+    background-color: var(--cor-btn-alternar-fundo);
+    color: var(--cor-btn-alternar-texto);
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
