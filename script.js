@@ -5,6 +5,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearListBtn = document.getElementById('clearListBtn');
     // Primeiro ouvinte de evento, é aplicado em toda página web
 
+    // Contar clicks
+    const clickButton = document.getElementById('clickButton');
+
+    let clickCount = JSON.parse(localStorage.getItem('Contarclick')) || 0; 
+
+    // Atualiza o texto inicial do botão com a contagem atual
+    // Agora ele já começa com "Cliques: X", sem o "Clique aqui!"
+    clickButton.textContent = `Cliques: ${clickCount}`;
+
+    // Adiciona um "ouvinte de evento" ao botão
+    clickButton.addEventListener('click', () => {
+        // Incrementa a contagem a cada clique
+        clickCount++;
+
+        // Atualiza o texto do botão com a nova contagem
+        clickButton.textContent = `Cliques: ${clickCount}`;
+
+        // Salva a contagem atualizada no localStorage
+        localStorage.setItem('Contarclick', JSON.stringify(clickCount));
+    });
+
+
     // Função para carregar itens do Local Storage
     function loadItems() {
         const items = JSON.parse(localStorage.getItem('shoppingList')) || [];

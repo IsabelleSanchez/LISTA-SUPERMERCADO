@@ -88,6 +88,14 @@ h1 {
     border-color: #D32F2F;
 }
 
+/* Estilo botão de clicks */
+.btn-secondary {
+    border-radius: 5px;
+    border: solid #af6adf;
+    background-color: #c881f8;
+    
+}
+
 /* Estilo para o botão "Limpar Lista Completa" */
 #clearListBtn {
     background-color: #F48FB1; /* Fundo: Rosa Médio */
